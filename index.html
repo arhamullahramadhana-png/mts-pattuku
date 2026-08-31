@@ -830,6 +830,783 @@
       color: var(--gold-warm)
     }
 
+    /* ---------- gallery (woven photo showcase & storage) ---------- */
+    .gallery {
+      background: var(--emerald-deep);
+      color: var(--paper);
+      position: relative;
+    }
+
+    .gallery-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1.5rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .gallery-head .gallery-intro {
+      max-width: 38em;
+    }
+
+    .gallery-head h2 {
+      color: var(--gold-pale);
+    }
+
+    .gallery-head .lede {
+      color: var(--paper-soft);
+    }
+
+    .gallery-actions {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      flex-wrap: wrap;
+    }
+
+    .gallery-manage-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: var(--sans);
+      font-size: .86rem;
+      font-weight: 600;
+      color: var(--emerald-deep);
+      background: var(--gold);
+      border: 1px solid var(--gold-warm);
+      padding: .65rem 1.25rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
+    }
+
+    .gallery-manage-btn:hover {
+      background: var(--gold-warm);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, .35);
+    }
+
+    .gallery-manage-btn .btn-badge {
+      background: var(--emerald-deep);
+      color: var(--gold-pale);
+      font-size: .72rem;
+      padding: .15rem .5rem;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    /* gallery filters */
+    .gallery-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .55rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
+    }
+
+    .gallery-filter-btn {
+      background: transparent;
+      border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+      color: var(--paper-soft);
+      font-family: var(--sans);
+      font-size: .82rem;
+      font-weight: 500;
+      padding: .45rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .gallery-filter-btn:hover {
+      border-color: var(--gold);
+      color: var(--paper);
+    }
+
+    .gallery-filter-btn.active {
+      background: var(--gold);
+      color: var(--emerald-deep);
+      border-color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* gallery grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.6rem;
+    }
+
+    .gallery-card {
+      background: color-mix(in srgb, var(--emerald) 75%, var(--emerald-deep));
+      border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .gallery-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, .45);
+    }
+
+    .gallery-card:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .gallery-card-thumb {
+      position: relative;
+      aspect-ratio: 16/11;
+      overflow: hidden;
+      background: var(--emerald-deep);
+    }
+
+    .gallery-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform .5s cubic-bezier(.2, .8, .2, 1);
+    }
+
+    .gallery-card:hover .gallery-card-img {
+      transform: scale(1.05);
+    }
+
+    .gallery-card-tag {
+      position: absolute;
+      top: .8rem;
+      left: .8rem;
+      background: color-mix(in srgb, var(--emerald-deep) 90%, transparent);
+      color: var(--gold-pale);
+      font-family: var(--sans);
+      font-size: .7rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      font-weight: 600;
+      padding: .25rem .65rem;
+      border-radius: 999px;
+      border: 1px solid color-mix(in srgb, var(--gold) 50%, transparent);
+      backdrop-filter: blur(6px);
+    }
+
+    .gallery-card-saved-badge {
+      position: absolute;
+      top: .8rem;
+      right: .8rem;
+      background: var(--gold);
+      color: var(--emerald-deep);
+      font-family: var(--sans);
+      font-size: .68rem;
+      font-weight: 700;
+      padding: .22rem .6rem;
+      border-radius: 999px;
+      letter-spacing: .04em;
+    }
+
+    .gallery-card-body {
+      padding: 1.2rem 1.25rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .gallery-card-date {
+      font-family: var(--sans);
+      font-size: .74rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold-warm);
+      margin-bottom: .35rem;
+    }
+
+    .gallery-card-title {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.22rem;
+      color: var(--paper);
+      line-height: 1.25;
+      margin-bottom: .45rem;
+    }
+
+    .gallery-card-desc {
+      font-family: var(--serif);
+      font-size: .92rem;
+      color: var(--paper-soft);
+      line-height: 1.5;
+      opacity: .9;
+    }
+
+    .gallery-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3.5rem 1.5rem;
+      background: color-mix(in srgb, var(--emerald) 50%, transparent);
+      border: 1px dashed color-mix(in srgb, var(--gold) 40%, transparent);
+      border-radius: 14px;
+      color: var(--paper-soft);
+    }
+
+    .gallery-empty h3 {
+      font-family: var(--display);
+      color: var(--gold-pale);
+      font-size: 1.35rem;
+      margin-bottom: .5rem;
+    }
+
+    /* ---------- lightbox modal ---------- */
+    .lightbox-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(5, 20, 15, .96);
+      backdrop-filter: blur(12px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(1rem, 3vw, 2.5rem);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s ease, visibility .3s ease;
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-container {
+      max-width: 960px;
+      width: 100%;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      background: var(--emerald-deep);
+      border: 1px solid color-mix(in srgb, var(--gold) 50%, transparent);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, .75);
+      position: relative;
+    }
+
+    .lightbox-media {
+      position: relative;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 280px;
+      max-height: 64vh;
+      overflow: hidden;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 64vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      transition: opacity .2s ease;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(9, 35, 27, .85);
+      color: var(--paper);
+      border: 1px solid color-mix(in srgb, var(--gold) 50%, transparent);
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all .2s;
+    }
+
+    .lightbox-close:hover {
+      background: var(--gold);
+      color: var(--emerald-deep);
+    }
+
+    .lightbox-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: rgba(9, 35, 27, .8);
+      color: var(--paper);
+      border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 5;
+      transition: all .2s;
+    }
+
+    .lightbox-nav-btn:hover {
+      background: var(--gold);
+      color: var(--emerald-deep);
+    }
+
+    .lightbox-prev {
+      left: 1rem;
+    }
+
+    .lightbox-next {
+      right: 1rem;
+    }
+
+    .lightbox-info {
+      padding: 1.2rem 1.6rem;
+      background: var(--emerald-deep);
+      border-top: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .lightbox-meta {
+      flex: 1;
+    }
+
+    .lightbox-title {
+      font-family: var(--display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--gold-warm);
+      margin-bottom: .3rem;
+    }
+
+    .lightbox-desc {
+      font-family: var(--serif);
+      font-size: .95rem;
+      color: var(--paper-soft);
+      line-height: 1.5;
+    }
+
+    .lightbox-side {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .lightbox-counter {
+      font-family: var(--sans);
+      font-size: .8rem;
+      letter-spacing: .08em;
+      color: var(--gold-pale);
+      margin-bottom: .3rem;
+    }
+
+    .lightbox-cat-badge {
+      font-family: var(--sans);
+      font-size: .72rem;
+      background: color-mix(in srgb, var(--emerald) 90%, transparent);
+      border: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+      color: var(--paper);
+      padding: .2rem .6rem;
+      border-radius: 999px;
+      display: inline-block;
+    }
+
+    /* ---------- photo manager modal ---------- */
+    .manager-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 110;
+      background: rgba(5, 20, 15, .94);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(1rem, 3vw, 2.5rem);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s ease, visibility .3s ease;
+    }
+
+    .manager-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .manager-box {
+      background: var(--paper);
+      color: var(--ink);
+      width: 100%;
+      max-width: 680px;
+      max-height: 90vh;
+      border-radius: 16px;
+      border: 2px solid var(--gold);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, .6);
+    }
+
+    .manager-head {
+      background: var(--emerald-deep);
+      color: var(--paper);
+      padding: 1.25rem 1.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+    }
+
+    .manager-head h3 {
+      font-family: var(--display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gold-warm);
+    }
+
+    .manager-close {
+      background: transparent;
+      border: none;
+      color: var(--paper-soft);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: .2rem .5rem;
+      line-height: 1;
+    }
+
+    .manager-close:hover {
+      color: var(--gold);
+    }
+
+    .manager-tabs {
+      display: flex;
+      background: var(--paper-soft);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .manager-tab-btn {
+      flex: 1;
+      padding: .85rem 1rem;
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: .88rem;
+      border: none;
+      background: transparent;
+      color: var(--ink-soft);
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all .2s;
+    }
+
+    .manager-tab-btn.active {
+      color: var(--emerald-deep);
+      background: var(--paper);
+      border-bottom-color: var(--gold-ink);
+    }
+
+    .manager-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    /* form upload */
+    .photo-form {
+      display: grid;
+      gap: 1.1rem;
+    }
+
+    .dropzone {
+      border: 2px dashed var(--line);
+      border-radius: 12px;
+      padding: 1.8rem 1.2rem;
+      text-align: center;
+      background: var(--paper-soft);
+      cursor: pointer;
+      transition: all .2s;
+      position: relative;
+    }
+
+    .dropzone:hover,
+    .dropzone.dragover {
+      border-color: var(--gold-ink);
+      background: color-mix(in srgb, var(--gold-pale) 25%, var(--paper-soft));
+    }
+
+    .dropzone-icon {
+      font-size: 2.2rem;
+      color: var(--gold-ink);
+      margin-bottom: .5rem;
+    }
+
+    .dropzone-text {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: .95rem;
+      color: var(--emerald-deep);
+    }
+
+    .dropzone-sub {
+      font-family: var(--sans);
+      font-size: .78rem;
+      color: var(--ink-soft);
+      margin-top: .25rem;
+    }
+
+    .file-input-hidden {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    .preview-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: .75rem;
+      background: var(--paper-soft);
+      border-radius: 10px;
+      border: 1px solid var(--line);
+    }
+
+    .preview-thumb {
+      width: 72px;
+      height: 54px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+    }
+
+    .preview-meta {
+      flex: 1;
+      font-family: var(--sans);
+      font-size: .82rem;
+      color: var(--ink);
+    }
+
+    .preview-remove {
+      background: none;
+      border: none;
+      color: #a32a2a;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: .3rem .6rem;
+      font-weight: 700;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: .35rem;
+    }
+
+    .form-group label {
+      font-family: var(--sans);
+      font-size: .82rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: var(--emerald-deep);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      font-family: var(--serif);
+      font-size: .98rem;
+      padding: .65rem .85rem;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      transition: border-color .2s;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--focus);
+      outline: none;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: .8rem;
+      margin-top: .6rem;
+    }
+
+    .btn-primary {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: .9rem;
+      background: var(--emerald-deep);
+      color: var(--gold-pale);
+      border: 1px solid var(--gold);
+      padding: .7rem 1.4rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--emerald-mid);
+    }
+
+    .btn-secondary {
+      font-family: var(--sans);
+      font-weight: 500;
+      font-size: .9rem;
+      background: var(--paper-soft);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      padding: .7rem 1.2rem;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: var(--line);
+    }
+
+    /* saved list view */
+    .saved-list-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .saved-stat-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: .75rem 1rem;
+      background: var(--paper-soft);
+      border-radius: 8px;
+      font-family: var(--sans);
+      font-size: .82rem;
+      color: var(--ink-soft);
+    }
+
+    .saved-items-grid {
+      display: grid;
+      gap: .75rem;
+    }
+
+    .saved-item-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: .75rem;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    .saved-item-img {
+      width: 60px;
+      height: 45px;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .saved-item-info {
+      flex: 1;
+    }
+
+    .saved-item-title {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--emerald-deep);
+    }
+
+    .saved-item-meta {
+      font-family: var(--sans);
+      font-size: .75rem;
+      color: var(--ink-soft);
+    }
+
+    .saved-item-del-btn {
+      background: #fdf0f0;
+      border: 1px solid #eababa;
+      color: #a82323;
+      padding: .4rem .75rem;
+      border-radius: 6px;
+      font-family: var(--sans);
+      font-size: .78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .saved-item-del-btn:hover {
+      background: #a82323;
+      color: #fff;
+    }
+
+    .backup-actions {
+      margin-top: 1.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      flex-wrap: wrap;
+      gap: .8rem;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* toast */
+    .toast-notice {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 200;
+      background: var(--emerald-deep);
+      color: var(--paper);
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      padding: .85rem 1.4rem;
+      font-family: var(--sans);
+      font-size: .88rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, .4);
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all .35s cubic-bezier(.2, .8, .2, 1);
+      pointer-events: none;
+    }
+
+    .toast-notice.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-notice .toast-icon {
+      color: var(--gold);
+      font-size: 1.1rem;
+    }
+
     /* ---------- news ---------- */
     .news {
       background: var(--paper)
@@ -1125,6 +1902,7 @@
           <li><a href="#tentang">Tentang</a></li>
           <li><a href="#program">Program</a></li>
           <li><a href="#fasilitas">Fasilitas</a></li>
+          <li><a href="#galeri">Galeri</a></li>
           <li><a href="#ppdb">PPDB</a></li>
           <li><a href="#kontak">Kontak</a></li>
         </ul>
@@ -1307,6 +2085,51 @@
     </div>
   </section>
 
+  <div class="thread-row" aria-hidden="true">
+    <div class="gold"></div>
+  </div>
+
+  <section class="section gallery" id="galeri">
+    <div class="gallery-head reveal">
+      <div class="gallery-intro">
+        <div class="hero-eyebrow-mark">
+          <span>Dokumentasi &amp; Ragam Kegiatan</span>
+        </div>
+        <h2 style="margin-top: 0.8rem;">Wajah Keseharian di MTs Pattuku.</h2>
+        <p class="lede">Momen kedisiplinan, kebersamaan, dan kehangatan belajar siswa-siswi madrasah di perbukitan Desa
+          Pattuku, Bontocani.</p>
+      </div>
+      <div class="gallery-actions">
+        <button class="gallery-manage-btn" id="openManagerBtn" type="button" aria-haspopup="dialog"
+          aria-controls="photoManagerModal">
+          <span aria-hidden="true">📷</span>
+          <span>Kelola &amp; Simpan Foto</span>
+          <span class="btn-badge" id="savedBadgeCount">0</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="gallery-filters reveal" role="tablist" aria-label="Filter kategori foto">
+      <button class="gallery-filter-btn active" data-filter="all" role="tab" aria-selected="true">Semua Foto</button>
+      <button class="gallery-filter-btn" data-filter="kegiatan" role="tab" aria-selected="false">Kegiatan &amp;
+        Prestasi</button>
+      <button class="gallery-filter-btn" data-filter="ekskul" role="tab" aria-selected="false">Ekstrakurikuler &amp;
+        Pramuka</button>
+      <button class="gallery-filter-btn" data-filter="pembelajaran" role="tab"
+        aria-selected="false">Pembelajaran</button>
+      <button class="gallery-filter-btn" data-filter="tersimpan" role="tab" aria-selected="false">Foto Tersimpan
+        (Kustom)</button>
+    </div>
+
+    <div class="gallery-grid reveal" id="galleryGrid" aria-live="polite">
+      <!-- Grid rendered via JavaScript -->
+    </div>
+  </section>
+
+  <div class="thread-row" aria-hidden="true">
+    <div class="gold"></div>
+  </div>
+
   <section class="section ppdb" id="ppdb">
     <div class="ink-narrow reveal">
       <h2>Daftar putra-putri Anda.</h2>
@@ -1404,6 +2227,7 @@
           <li><a href="#tentang">Tentang</a></li>
           <li><a href="#program">Program</a></li>
           <li><a href="#fasilitas">Fasilitas</a></li>
+          <li><a href="#galeri">Galeri &amp; Dokumentasi</a></li>
           <li><a href="#ppdb">Pendaftaran (PPDB)</a></li>
         </ul>
       </div>
@@ -1414,12 +2238,147 @@
     </div>
   </footer>
 
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="photoLightbox" role="dialog" aria-modal="true"
+    aria-label="Penampil Foto Resolusi Penuh">
+    <div class="lightbox-container">
+      <button class="lightbox-close" id="lightboxCloseBtn" type="button" aria-label="Tutup penampil foto">✕</button>
+      <button class="lightbox-nav-btn lightbox-prev" id="lightboxPrevBtn" type="button"
+        aria-label="Foto sebelumnya">❮</button>
+      <button class="lightbox-nav-btn lightbox-next" id="lightboxNextBtn" type="button"
+        aria-label="Foto selanjutnya">❯</button>
+      <div class="lightbox-media">
+        <img src="" alt="" class="lightbox-img" id="lightboxImg">
+      </div>
+      <div class="lightbox-info">
+        <div class="lightbox-meta">
+          <h3 class="lightbox-title" id="lightboxTitle"></h3>
+          <p class="lightbox-desc" id="lightboxDesc"></p>
+        </div>
+        <div class="lightbox-side">
+          <div class="lightbox-counter" id="lightboxCounter">Foto 1 dari 5</div>
+          <span class="lightbox-cat-badge" id="lightboxCategory">Kegiatan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Photo Manager Modal -->
+  <div class="manager-modal" id="photoManagerModal" role="dialog" aria-modal="true" aria-labelledby="managerTitle">
+    <div class="manager-box">
+      <div class="manager-head">
+        <div>
+          <div
+            style="font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold-pale);">
+            Pengelolaan Dokumentasi</div>
+          <h3 id="managerTitle" style="margin-top: 0.2rem;">Kelola &amp; Simpan Foto Madrasah</h3>
+        </div>
+        <button class="manager-close" id="managerCloseBtn" type="button"
+          aria-label="Tutup jendela kelola foto">✕</button>
+      </div>
+      <div class="manager-tabs">
+        <button class="manager-tab-btn active" id="tabUploadBtn" type="button">Unggah Foto Baru</button>
+        <button class="manager-tab-btn" id="tabListBtn" type="button">Foto Tersimpan (<span
+            id="tabCountSpan">0</span>)</button>
+      </div>
+      <div class="manager-body">
+        <!-- Tab 1: Upload Form -->
+        <div id="tabUploadContent">
+          <form class="photo-form" id="photoUploadForm">
+            <div class="dropzone" id="dropzoneArea">
+              <input type="file" id="photoFileInput" class="file-input-hidden" accept="image/jpeg,image/png,image/webp">
+              <div class="dropzone-icon" aria-hidden="true">📁</div>
+              <div class="dropzone-text">Pilih atau Seret Foto ke Sini</div>
+              <div class="dropzone-sub">Mendukung format JPG, PNG, WEBP (Disimpan permanen di memori browser ini)</div>
+            </div>
+
+            <div class="preview-box" id="previewContainer" style="display: none;">
+              <img src="" alt="Pratinjau" class="preview-thumb" id="previewThumb">
+              <div class="preview-meta">
+                <strong id="previewFileName">foto.jpg</strong>
+                <div id="previewFileSize" style="color: var(--ink-soft); font-size: 0.75rem;">120 KB</div>
+              </div>
+              <button type="button" class="preview-remove" id="previewRemoveBtn" title="Hapus foto terpilih">✕</button>
+            </div>
+
+            <div class="form-group">
+              <label for="photoTitleInput">Judul Foto Dokumentasi *</label>
+              <input type="text" id="photoTitleInput" placeholder="Contoh: Upacara Hari Santri di Madrasah" required>
+            </div>
+
+            <div class="form-group">
+              <label for="photoCategorySelect">Kategori *</label>
+              <select id="photoCategorySelect" required>
+                <option value="kegiatan">Kegiatan &amp; Prestasi</option>
+                <option value="ekskul">Ekstrakurikuler &amp; Pramuka</option>
+                <option value="pembelajaran">Pembelajaran &amp; Tahfidz</option>
+                <option value="lingkungan">Lingkungan Madrasah</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="photoDateInput">Keterangan Waktu / Tanggal</label>
+              <input type="text" id="photoDateInput" placeholder="Contoh: Agustus 2026 atau Tahun Ajaran 2025/2026">
+            </div>
+
+            <div class="form-group">
+              <label for="photoDescInput">Deskripsi / Catatan Dokumentasi</label>
+              <textarea id="photoDescInput" rows="2"
+                placeholder="Tuliskan cerita singkat atau keterangan momen terkait foto ini..."></textarea>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-secondary" id="cancelUploadBtn">Batal</button>
+              <button type="submit" class="btn-primary" id="savePhotoSubmitBtn">Simpan ke Galeri</button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Tab 2: Saved List & Backup -->
+        <div id="tabListContent" style="display: none;">
+          <div class="saved-list-wrap">
+            <div class="saved-stat-bar">
+              <span>Status: <strong id="storageStatusText">0 Foto Kustom Tersimpan</strong></span>
+              <span style="font-size: 0.75rem;">Penyimpanan Lokal (IndexedDB)</span>
+            </div>
+
+            <div class="saved-items-grid" id="savedItemsContainer">
+              <!-- Item list injected here -->
+            </div>
+
+            <div class="backup-actions">
+              <div>
+                <button type="button" class="btn-secondary" id="exportBackupBtn"
+                  style="font-size: 0.8rem; padding: 0.5rem 0.9rem;">
+                  ⬇ Ekspor Cadangan Foto (JSON)
+                </button>
+              </div>
+              <div>
+                <label for="importBackupInput" class="btn-secondary"
+                  style="font-size: 0.8rem; padding: 0.5rem 0.9rem; cursor: pointer; display: inline-block;">
+                  ⬆ Impor Cadangan
+                </label>
+                <input type="file" id="importBackupInput" accept=".json" style="display: none;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notice -->
+  <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
+    <span class="toast-icon">✦</span>
+    <span id="toastMsg">Foto berhasil disimpan!</span>
+  </div>
+
   <script>
     (function () {
       document.documentElement.classList.add('js');
       var yr = document.getElementById('yr'); if (yr) yr.textContent = new Date().getFullYear();
 
-      // mobile menu
+      // Mobile Menu
       var btn = document.querySelector('.menu-btn'), links = document.getElementById('navlinks');
       if (btn && links) {
         btn.addEventListener('click', function () {
@@ -1428,23 +2387,724 @@
           btn.textContent = open ? '✕' : '☰';
           btn.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
         });
-        links.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { links.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.textContent = '☰'; }); });
+        links.querySelectorAll('a').forEach(function (a) {
+          a.addEventListener('click', function () {
+            links.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.textContent = '☰';
+          });
+        });
       }
 
-      // reveal on scroll — single authored movement, reduced-motion safe
+      // Reveal on scroll — single authored movement, reduced-motion safe
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!reduce) {
         var els = document.querySelectorAll('.reveal');
         if ('IntersectionObserver' in window) {
           var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add('in');
+                io.unobserve(e.target);
+              }
+            });
           }, { threshold: 0.12 });
           els.forEach(function (el) { io.observe(el) });
-        } else { els.forEach(function (el) { el.classList.add('in') }); }
+        } else {
+          els.forEach(function (el) { el.classList.add('in') });
+        }
       } else {
-        // reduced motion: show everything immediately
         document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in') });
       }
+
+      // ============================================================
+      // PHOTO STORAGE ENGINE (IndexedDB + Fallback) & GALLERY LOGIC
+      // ============================================================
+      var DB_NAME = 'MtsPattukuPhotosDB';
+      var DB_VERSION = 1;
+      var STORE_NAME = 'photos';
+
+      var DEFAULT_PHOTOS = [
+        {
+          id: 'sys-1',
+          isSystem: true,
+          title: 'Pasukan Barisan Siswa di Perbukitan Bontocani',
+          category: 'Kegiatan & Prestasi',
+          categorySlug: 'kegiatan',
+          date: 'Dokumentasi Madrasah',
+          desc: 'Siswa-siswi MTs Pattuku berbaris dengan bangga mengenakan selempang identitas resmi madrasah di alam terbuka perbukitan Bontocani.',
+          src: 'assets/galeri-lapangan-bontocani.jpg'
+        },
+        {
+          id: 'sys-2',
+          isSystem: true,
+          title: 'Regu Baris-berbaris di Gerbang Perkemahan',
+          category: 'Kegiatan & Prestasi',
+          categorySlug: 'kegiatan',
+          date: 'Dokumentasi Madrasah',
+          desc: 'Kompak dan disiplin dalam balutan seragam madrasah, siap menyambut ajang perlombaan dan kegiatan perkemahan.',
+          src: 'assets/galeri-paskibra-gerbang.jpg'
+        },
+        {
+          id: 'sys-3',
+          isSystem: true,
+          title: 'Regu Pramuka Penggalang Putri & Pembina',
+          category: 'Ekstrakurikuler & Pramuka',
+          categorySlug: 'ekskul',
+          date: 'Dokumentasi Madrasah',
+          desc: 'Kebersamaan regu pramuka putri MTs Pattuku dengan tongkat pramuka dan bimbingan guru madrasah.',
+          src: 'assets/galeri-regu-pramuka-putri.jpg'
+        },
+        {
+          id: 'sys-4',
+          isSystem: true,
+          title: 'Kreasi Pionering Bangunan Tongkat Pramuka',
+          category: 'Ekstrakurikuler & Pramuka',
+          categorySlug: 'ekskul',
+          date: 'Dokumentasi Madrasah',
+          desc: 'Kreativitas dan kekompakan tim siswa MTs Pattuku dalam merangkai menara dan struktur pionering tongkat.',
+          src: 'assets/galeri-pionering-pramuka.jpg'
+        },
+        {
+          id: 'sys-5',
+          isSystem: true,
+          title: 'Aktivitas Kelas & Pembinaan Karakter Siswa',
+          category: 'Pembelajaran & Tahfidz',
+          categorySlug: 'pembelajaran',
+          date: 'Dokumentasi Madrasah',
+          desc: 'Aktivitas pembinaan dan persiapan regu siswa di dalam ruang kelas MTs Pattuku yang asri dan bersahabat.',
+          src: 'assets/galeri-pramuka-kelas.jpg'
+        }
+      ];
+
+      function openDB() {
+        return new Promise(function (resolve) {
+          if (!window.indexedDB) {
+            resolve(null);
+            return;
+          }
+          try {
+            var request = window.indexedDB.open(DB_NAME, DB_VERSION);
+            request.onupgradeneeded = function (e) {
+              var db = e.target.result;
+              if (!db.objectStoreNames.contains(STORE_NAME)) {
+                db.createObjectStore(STORE_NAME, { keyPath: 'id', autoIncrement: true });
+              }
+            };
+            request.onsuccess = function (e) {
+              resolve(e.target.result);
+            };
+            request.onerror = function () {
+              resolve(null);
+            };
+          } catch (err) {
+            resolve(null);
+          }
+        });
+      }
+
+      function getStoredPhotos() {
+        return openDB().then(function (db) {
+          if (!db) {
+            try {
+              var local = localStorage.getItem('mts_pattuku_custom_photos');
+              return local ? JSON.parse(local) : [];
+            } catch (e) {
+              return [];
+            }
+          }
+          return new Promise(function (resolve) {
+            var tx = db.transaction([STORE_NAME], 'readonly');
+            var store = tx.objectStore(STORE_NAME);
+            var req = store.getAll();
+            req.onsuccess = function () {
+              resolve(req.result || []);
+            };
+            req.onerror = function () {
+              resolve([]);
+            };
+          });
+        });
+      }
+
+      function saveStoredPhoto(photoObj) {
+        return openDB().then(function (db) {
+          if (!db) {
+            try {
+              var local = localStorage.getItem('mts_pattuku_custom_photos');
+              var arr = local ? JSON.parse(local) : [];
+              photoObj.id = Date.now();
+              arr.unshift(photoObj);
+              localStorage.setItem('mts_pattuku_custom_photos', JSON.stringify(arr));
+              return photoObj;
+            } catch (e) {
+              return null;
+            }
+          }
+          return new Promise(function (resolve, reject) {
+            var tx = db.transaction([STORE_NAME], 'readwrite');
+            var store = tx.objectStore(STORE_NAME);
+            var req = store.add(photoObj);
+            req.onsuccess = function (e) {
+              photoObj.id = e.target.result;
+              resolve(photoObj);
+            };
+            req.onerror = function (err) {
+              reject(err);
+            };
+          });
+        });
+      }
+
+      function deleteStoredPhoto(id) {
+        return openDB().then(function (db) {
+          if (!db) {
+            try {
+              var local = localStorage.getItem('mts_pattuku_custom_photos');
+              var arr = local ? JSON.parse(local) : [];
+              var filtered = arr.filter(function (item) { return item.id !== id; });
+              localStorage.setItem('mts_pattuku_custom_photos', JSON.stringify(filtered));
+              return true;
+            } catch (e) {
+              return false;
+            }
+          }
+          return new Promise(function (resolve) {
+            var tx = db.transaction([STORE_NAME], 'readwrite');
+            var store = tx.objectStore(STORE_NAME);
+            var req = store.delete(id);
+            req.onsuccess = function () { resolve(true); };
+            req.onerror = function () { resolve(false); };
+          });
+        });
+      }
+
+      // State
+      var currentFilter = 'all';
+      var allPhotosList = [];
+      var filteredPhotosList = [];
+      var currentLightboxIndex = 0;
+
+      var galleryGrid = document.getElementById('galleryGrid');
+      var filterButtons = document.querySelectorAll('.gallery-filter-btn');
+      var savedBadgeCount = document.getElementById('savedBadgeCount');
+
+      // Toast feedback helper
+      var toastNotice = document.getElementById('toastNotice');
+      var toastMsg = document.getElementById('toastMsg');
+      var toastTimer = null;
+      function showToast(msg) {
+        if (!toastNotice) return;
+        if (toastTimer) clearTimeout(toastTimer);
+        toastMsg.textContent = msg;
+        toastNotice.classList.add('show');
+        toastTimer = setTimeout(function () {
+          toastNotice.classList.remove('show');
+        }, 3200);
+      }
+
+      // Load & Render all photos
+      function refreshGallery() {
+        getStoredPhotos().then(function (customPhotos) {
+          // Update custom badge count
+          var customCount = customPhotos.length;
+          if (savedBadgeCount) savedBadgeCount.textContent = customCount;
+          var tabCountSpan = document.getElementById('tabCountSpan');
+          if (tabCountSpan) tabCountSpan.textContent = customCount;
+          var storageStatusText = document.getElementById('storageStatusText');
+          if (storageStatusText) storageStatusText.textContent = customCount + ' Foto Kustom Tersimpan';
+
+          // Combine default photos and custom photos
+          allPhotosList = customPhotos.concat(DEFAULT_PHOTOS);
+
+          // Apply current filter
+          applyFilter(currentFilter);
+
+          // Render saved list in manager
+          renderSavedList(customPhotos);
+        });
+      }
+
+      function applyFilter(filter) {
+        currentFilter = filter;
+        if (filter === 'all') {
+          filteredPhotosList = allPhotosList;
+        } else if (filter === 'tersimpan') {
+          filteredPhotosList = allPhotosList.filter(function (p) { return !p.isSystem; });
+        } else {
+          filteredPhotosList = allPhotosList.filter(function (p) { return p.categorySlug === filter; });
+        }
+        renderGalleryGrid();
+      }
+
+      function renderGalleryGrid() {
+        if (!galleryGrid) return;
+        galleryGrid.innerHTML = '';
+
+        if (filteredPhotosList.length === 0) {
+          var emptyDiv = document.createElement('div');
+          emptyDiv.className = 'gallery-empty';
+          emptyDiv.innerHTML = '<h3>Belum ada foto dalam kategori ini</h3><p>Klik tombol <strong>Kelola &amp; Simpan Foto</strong> di atas untuk menambahkan dokumentasi baru.</p>';
+          galleryGrid.appendChild(emptyDiv);
+          return;
+        }
+
+        filteredPhotosList.forEach(function (photo, idx) {
+          var card = document.createElement('article');
+          card.className = 'gallery-card';
+          card.setAttribute('tabindex', '0');
+          card.setAttribute('role', 'button');
+          card.setAttribute('aria-label', 'Lihat foto: ' + photo.title);
+
+          var thumbDiv = document.createElement('div');
+          thumbDiv.className = 'gallery-card-thumb';
+
+          var img = document.createElement('img');
+          img.src = photo.src;
+          img.alt = photo.title;
+          img.className = 'gallery-card-img';
+          img.loading = 'lazy';
+          thumbDiv.appendChild(img);
+
+          var tag = document.createElement('span');
+          tag.className = 'gallery-card-tag';
+          tag.textContent = photo.category || 'Dokumentasi';
+          thumbDiv.appendChild(tag);
+
+          if (!photo.isSystem) {
+            var savedBadge = document.createElement('span');
+            savedBadge.className = 'gallery-card-saved-badge';
+            savedBadge.textContent = 'Tersimpan';
+            thumbDiv.appendChild(savedBadge);
+          }
+
+          var bodyDiv = document.createElement('div');
+          bodyDiv.className = 'gallery-card-body';
+
+          var dateSpan = document.createElement('span');
+          dateSpan.className = 'gallery-card-date';
+          dateSpan.textContent = photo.date || 'MTs Pattuku';
+          bodyDiv.appendChild(dateSpan);
+
+          var titleH3 = document.createElement('h3');
+          titleH3.className = 'gallery-card-title';
+          titleH3.textContent = photo.title;
+          bodyDiv.appendChild(titleH3);
+
+          if (photo.desc) {
+            var descP = document.createElement('p');
+            descP.className = 'gallery-card-desc';
+            descP.textContent = photo.desc;
+            bodyDiv.appendChild(descP);
+          }
+
+          card.appendChild(thumbDiv);
+          card.appendChild(bodyDiv);
+
+          // Click & Keyboard interactions
+          card.addEventListener('click', function () {
+            openLightbox(idx);
+          });
+          card.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              openLightbox(idx);
+            }
+          });
+
+          galleryGrid.appendChild(card);
+        });
+      }
+
+      // Filter click listeners
+      filterButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          filterButtons.forEach(function (b) {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          applyFilter(btn.dataset.filter);
+        });
+      });
+
+      // ============================================================
+      // LIGHTBOX LOGIC
+      // ============================================================
+      var photoLightbox = document.getElementById('photoLightbox');
+      var lightboxImg = document.getElementById('lightboxImg');
+      var lightboxTitle = document.getElementById('lightboxTitle');
+      var lightboxDesc = document.getElementById('lightboxDesc');
+      var lightboxCategory = document.getElementById('lightboxCategory');
+      var lightboxCounter = document.getElementById('lightboxCounter');
+      var lightboxCloseBtn = document.getElementById('lightboxCloseBtn');
+      var lightboxPrevBtn = document.getElementById('lightboxPrevBtn');
+      var lightboxNextBtn = document.getElementById('lightboxNextBtn');
+
+      function openLightbox(index) {
+        if (!filteredPhotosList || filteredPhotosList.length === 0) return;
+        currentLightboxIndex = index;
+        updateLightboxContent();
+        photoLightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        photoLightbox.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function updateLightboxContent() {
+        var photo = filteredPhotosList[currentLightboxIndex];
+        if (!photo) return;
+        lightboxImg.src = photo.src;
+        lightboxImg.alt = photo.title;
+        lightboxTitle.textContent = photo.title;
+        lightboxDesc.textContent = photo.desc || '';
+        lightboxCategory.textContent = photo.category || 'MTs Pattuku';
+        lightboxCounter.textContent = 'Foto ' + (currentLightboxIndex + 1) + ' dari ' + filteredPhotosList.length;
+      }
+
+      function nextLightboxPhoto() {
+        currentLightboxIndex = (currentLightboxIndex + 1) % filteredPhotosList.length;
+        updateLightboxContent();
+      }
+
+      function prevLightboxPhoto() {
+        currentLightboxIndex = (currentLightboxIndex - 1 + filteredPhotosList.length) % filteredPhotosList.length;
+        updateLightboxContent();
+      }
+
+      if (lightboxCloseBtn) lightboxCloseBtn.addEventListener('click', closeLightbox);
+      if (lightboxNextBtn) lightboxNextBtn.addEventListener('click', nextLightboxPhoto);
+      if (lightboxPrevBtn) lightboxPrevBtn.addEventListener('click', prevLightboxPhoto);
+
+      // Close on backdrop click
+      if (photoLightbox) {
+        photoLightbox.addEventListener('click', function (e) {
+          if (e.target === photoLightbox) closeLightbox();
+        });
+      }
+
+      // Keyboard navigation for Lightbox & Modals
+      window.addEventListener('keydown', function (e) {
+        if (photoLightbox && photoLightbox.classList.contains('active')) {
+          if (e.key === 'Escape') closeLightbox();
+          if (e.key === 'ArrowRight') nextLightboxPhoto();
+          if (e.key === 'ArrowLeft') prevLightboxPhoto();
+        }
+        if (photoManagerModal && photoManagerModal.classList.contains('active')) {
+          if (e.key === 'Escape') closeManager();
+        }
+      });
+
+      // ============================================================
+      // PHOTO MANAGER & UPLOAD LOGIC
+      // ============================================================
+      var photoManagerModal = document.getElementById('photoManagerModal');
+      var openManagerBtn = document.getElementById('openManagerBtn');
+      var managerCloseBtn = document.getElementById('managerCloseBtn');
+      var tabUploadBtn = document.getElementById('tabUploadBtn');
+      var tabListBtn = document.getElementById('tabListBtn');
+      var tabUploadContent = document.getElementById('tabUploadContent');
+      var tabListContent = document.getElementById('tabListContent');
+      var cancelUploadBtn = document.getElementById('cancelUploadBtn');
+
+      var dropzoneArea = document.getElementById('dropzoneArea');
+      var photoFileInput = document.getElementById('photoFileInput');
+      var previewContainer = document.getElementById('previewContainer');
+      var previewThumb = document.getElementById('previewThumb');
+      var previewFileName = document.getElementById('previewFileName');
+      var previewFileSize = document.getElementById('previewFileSize');
+      var previewRemoveBtn = document.getElementById('previewRemoveBtn');
+      var photoUploadForm = document.getElementById('photoUploadForm');
+
+      var photoTitleInput = document.getElementById('photoTitleInput');
+      var photoCategorySelect = document.getElementById('photoCategorySelect');
+      var photoDateInput = document.getElementById('photoDateInput');
+      var photoDescInput = document.getElementById('photoDescInput');
+
+      var currentSelectedBase64 = null;
+
+      function openManager() {
+        if (!photoManagerModal) return;
+        photoManagerModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeManager() {
+        if (!photoManagerModal) return;
+        photoManagerModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      if (openManagerBtn) openManagerBtn.addEventListener('click', openManager);
+      if (managerCloseBtn) managerCloseBtn.addEventListener('click', closeManager);
+      if (cancelUploadBtn) cancelUploadBtn.addEventListener('click', closeManager);
+
+      if (photoManagerModal) {
+        photoManagerModal.addEventListener('click', function (e) {
+          if (e.target === photoManagerModal) closeManager();
+        });
+      }
+
+      // Tab switching
+      if (tabUploadBtn && tabListBtn) {
+        tabUploadBtn.addEventListener('click', function () {
+          tabUploadBtn.classList.add('active');
+          tabListBtn.classList.remove('active');
+          tabUploadContent.style.display = 'block';
+          tabListContent.style.display = 'none';
+        });
+        tabListBtn.addEventListener('click', function () {
+          tabListBtn.classList.add('active');
+          tabUploadBtn.classList.remove('active');
+          tabUploadContent.style.display = 'none';
+          tabListContent.style.display = 'block';
+        });
+      }
+
+      // Handle Image Resizing & DataURL conversion
+      function processFile(file) {
+        if (!file || !file.type.match(/^image\//)) {
+          alert('Mohon pilih berkas gambar yang valid (JPG, PNG, WEBP).');
+          return;
+        }
+
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          var img = new Image();
+          img.onload = function () {
+            // Compress / resize to max dimension ~1280px for optimal performance
+            var maxDim = 1280;
+            var width = img.width;
+            var height = img.height;
+            if (width > maxDim || height > maxDim) {
+              if (width > height) {
+                height = Math.round((height * maxDim) / width);
+                width = maxDim;
+              } else {
+                width = Math.round((width * maxDim) / height);
+                height = maxDim;
+              }
+            }
+            var canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+
+            var optimizedDataUrl = canvas.toDataURL('image/jpeg', 0.85);
+            currentSelectedBase64 = optimizedDataUrl;
+
+            // Update UI preview
+            previewThumb.src = optimizedDataUrl;
+            previewFileName.textContent = file.name;
+            var sizeKb = Math.round(optimizedDataUrl.length * 3 / 4 / 1024);
+            previewFileSize.textContent = 'Ukuran teroptimasi: ±' + sizeKb + ' KB';
+            previewContainer.style.display = 'flex';
+            dropzoneArea.style.display = 'none';
+
+            // Auto-fill title if empty
+            if (!photoTitleInput.value) {
+              var cleanName = file.name.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ');
+              photoTitleInput.value = cleanName.charAt(0).toUpperCase() + cleanName.slice(1);
+            }
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+
+      if (photoFileInput) {
+        photoFileInput.addEventListener('change', function (e) {
+          if (e.target.files && e.target.files[0]) {
+            processFile(e.target.files[0]);
+          }
+        });
+      }
+
+      // Drag and drop handlers
+      if (dropzoneArea) {
+        ['dragenter', 'dragover'].forEach(function (eventName) {
+          dropzoneArea.addEventListener(eventName, function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropzoneArea.classList.add('dragover');
+          });
+        });
+        ['dragleave', 'drop'].forEach(function (eventName) {
+          dropzoneArea.addEventListener(eventName, function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropzoneArea.classList.remove('dragover');
+          });
+        });
+        dropzoneArea.addEventListener('drop', function (e) {
+          var dt = e.dataTransfer;
+          if (dt && dt.files && dt.files[0]) {
+            processFile(dt.files[0]);
+          }
+        });
+      }
+
+      if (previewRemoveBtn) {
+        previewRemoveBtn.addEventListener('click', function () {
+          currentSelectedBase64 = null;
+          photoFileInput.value = '';
+          previewContainer.style.display = 'none';
+          dropzoneArea.style.display = 'block';
+        });
+      }
+
+      // Handle form submission (save to IndexedDB)
+      if (photoUploadForm) {
+        photoUploadForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          if (!currentSelectedBase64) {
+            alert('Silakan pilih foto terlebih dahulu.');
+            return;
+          }
+
+          var categoryMap = {
+            'kegiatan': 'Kegiatan & Prestasi',
+            'ekskul': 'Ekstrakurikuler & Pramuka',
+            'pembelajaran': 'Pembelajaran & Tahfidz',
+            'lingkungan': 'Lingkungan Madrasah'
+          };
+
+          var catSlug = photoCategorySelect.value;
+          var newPhoto = {
+            title: photoTitleInput.value.trim(),
+            category: categoryMap[catSlug] || 'Dokumentasi',
+            categorySlug: catSlug,
+            date: photoDateInput.value.trim() || 'Dokumentasi Baru',
+            desc: photoDescInput.value.trim() || '',
+            src: currentSelectedBase64,
+            createdAt: new Date().toISOString()
+          };
+
+          saveStoredPhoto(newPhoto).then(function () {
+            showToast('Foto berhasil disimpan ke galeri madrasah!');
+            // Reset form
+            photoUploadForm.reset();
+            currentSelectedBase64 = null;
+            previewContainer.style.display = 'none';
+            dropzoneArea.style.display = 'block';
+            // Switch to list tab or refresh
+            refreshGallery();
+            closeManager();
+          }).catch(function (err) {
+            alert('Gagal menyimpan foto: ' + err.message);
+          });
+        });
+      }
+
+      // Render saved list in modal
+      function renderSavedList(customPhotos) {
+        var savedItemsContainer = document.getElementById('savedItemsContainer');
+        if (!savedItemsContainer) return;
+        savedItemsContainer.innerHTML = '';
+
+        if (!customPhotos || customPhotos.length === 0) {
+          savedItemsContainer.innerHTML = '<div style="text-align: center; padding: 2rem; color: var(--ink-soft); font-size: 0.9rem;">Belum ada foto kustom tersimpan. Silakan unggah foto pada tab "Unggah Foto Baru".</div>';
+          return;
+        }
+
+        customPhotos.forEach(function (photo) {
+          var row = document.createElement('div');
+          row.className = 'saved-item-row';
+
+          var img = document.createElement('img');
+          img.src = photo.src;
+          img.alt = photo.title;
+          img.className = 'saved-item-img';
+
+          var info = document.createElement('div');
+          info.className = 'saved-item-info';
+
+          var title = document.createElement('div');
+          title.className = 'saved-item-title';
+          title.textContent = photo.title;
+
+          var meta = document.createElement('div');
+          meta.className = 'saved-item-meta';
+          meta.textContent = photo.category + ' · ' + (photo.date || 'Tersimpan');
+
+          info.appendChild(title);
+          info.appendChild(meta);
+
+          var delBtn = document.createElement('button');
+          delBtn.className = 'saved-item-del-btn';
+          delBtn.textContent = 'Hapus';
+          delBtn.type = 'button';
+          delBtn.addEventListener('click', function () {
+            if (confirm('Apakah Anda yakin ingin menghapus foto "' + photo.title + '" dari penyimpanan lokal?')) {
+              deleteStoredPhoto(photo.id).then(function () {
+                showToast('Foto telah dihapus.');
+                refreshGallery();
+              });
+            }
+          });
+
+          row.appendChild(img);
+          row.appendChild(info);
+          row.appendChild(delBtn);
+          savedItemsContainer.appendChild(row);
+        });
+      }
+
+      // Backup: Export JSON
+      var exportBackupBtn = document.getElementById('exportBackupBtn');
+      if (exportBackupBtn) {
+        exportBackupBtn.addEventListener('click', function () {
+          getStoredPhotos().then(function (photos) {
+            if (!photos || photos.length === 0) {
+              alert('Belum ada foto kustom tersimpan untuk dicadangkan.');
+              return;
+            }
+            var dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(photos, null, 2));
+            var downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute('href', dataStr);
+            downloadAnchor.setAttribute('download', 'cadangan-foto-mts-pattuku.json');
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            showToast('Cadangan foto berhasil diunduh!');
+          });
+        });
+      }
+
+      // Backup: Import JSON
+      var importBackupInput = document.getElementById('importBackupInput');
+      if (importBackupInput) {
+        importBackupInput.addEventListener('change', function (e) {
+          var file = e.target.files && e.target.files[0];
+          if (!file) return;
+          var reader = new FileReader();
+          reader.onload = function (event) {
+            try {
+              var importedPhotos = JSON.parse(event.target.result);
+              if (!Array.isArray(importedPhotos)) throw new Error('Format berkas tidak valid.');
+              var promises = importedPhotos.map(function (p) {
+                delete p.id;
+                return saveStoredPhoto(p);
+              });
+              Promise.all(promises).then(function () {
+                showToast(importedPhotos.length + ' foto berhasil diimpor!');
+                refreshGallery();
+              });
+            } catch (err) {
+              alert('Gagal mengimpor berkas cadangan: ' + err.message);
+            }
+          };
+          reader.readAsText(file);
+        });
+      }
+
+      // Initial load
+      refreshGallery();
     })();
   </script>
 </body>

@@ -54,6 +54,13 @@ Sekolah berusia lebih dari 50 tahun yang melayani pendidikan desa dengan Qur'an 
 - Profil resmi dari data Kemendikdasmen (via sekolah.data.kemendikdasmen.go.id, disadur oleh sumber pihak ketiga): NPSN, berdirinya, akreditasi, lokasi, luas tanah. Dikonfirmasi benar oleh user.
 - Foto resmi Kepala Madrasah disediakan oleh pengguna dan disimpan di `assets/kepala-madrasah.jpg`.
 - Logo resmi madrasah (YPI Hajar Aswad - MTs Pattuku) disediakan oleh pengguna dan disimpan di `assets/logo.png` (transparan) & `assets/logo.jpg`.
+- Foto resmi dokumentasi madrasah disediakan oleh pengguna:
+  - `assets/galeri-lapangan-bontocani.jpg` (Pasukan kehormatan / barisan siswa di alam terbuka perbukitan Bontocani)
+  - `assets/galeri-paskibra-gerbang.jpg` (Pasukan baris-berbaris berseragam resmi di gerbang perkemahan)
+  - `assets/galeri-regu-pramuka-putri.jpg` (Regu pramuka penggalang putri bersama guru pembina)
+  - `assets/galeri-pionering-pramuka.jpg` (Kreativitas pionering tongkat pramuka penggalang)
+  - `assets/galeri-pramuka-kelas.jpg` (Aktivitas pembinaan dan persiapan regu di dalam ruang kelas)
+
 
 ## Product Principles
 
