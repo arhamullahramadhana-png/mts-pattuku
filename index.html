@@ -832,6 +832,209 @@
       color: var(--gold-warm)
     }
 
+    /* ---------- admin auth ---------- */
+    .admin-login-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      background: rgba(5, 20, 15, .97);
+      backdrop-filter: blur(14px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .3s ease, visibility .3s ease;
+    }
+
+    .admin-login-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .admin-login-box {
+      background: var(--paper);
+      color: var(--ink);
+      width: 100%;
+      max-width: 420px;
+      border-radius: 16px;
+      border: 2px solid var(--gold);
+      overflow: hidden;
+      box-shadow: 0 30px 70px rgba(0, 0, 0, .7);
+    }
+
+    .admin-login-head {
+      background: var(--emerald-deep);
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+    }
+
+    .admin-login-icon {
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .admin-login-head h3 {
+      font-family: var(--display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--gold-warm);
+      margin: 0;
+    }
+
+    .admin-login-head p {
+      font-family: var(--sans);
+      font-size: .76rem;
+      color: var(--paper-soft);
+      margin: .15rem 0 0;
+      letter-spacing: .04em;
+    }
+
+    .admin-login-body {
+      padding: 1.75rem 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .admin-pass-group {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+    }
+
+    .admin-pass-group label {
+      font-family: var(--sans);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: var(--emerald-deep);
+    }
+
+    .admin-pass-wrap {
+      position: relative;
+      display: flex;
+    }
+
+    .admin-pass-input {
+      width: 100%;
+      font-family: var(--serif);
+      font-size: 1rem;
+      padding: .75rem 3rem .75rem .9rem;
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper-soft);
+      color: var(--ink);
+      transition: border-color .2s;
+      -webkit-text-security: disc;
+    }
+
+    .admin-pass-input:focus {
+      border-color: var(--focus);
+      outline: none;
+    }
+
+    .admin-pass-toggle {
+      position: absolute;
+      right: .6rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      padding: .2rem .4rem;
+    }
+
+    .admin-pass-toggle:hover {
+      color: var(--emerald-deep);
+    }
+
+    .admin-login-error {
+      font-family: var(--sans);
+      font-size: .82rem;
+      color: #b83232;
+      background: #fdf0f0;
+      border: 1px solid #eababa;
+      padding: .55rem .85rem;
+      border-radius: 8px;
+      display: none;
+    }
+
+    .admin-login-error.show {
+      display: block;
+    }
+
+    .admin-login-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: .75rem;
+    }
+
+    .admin-trigger-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: color-mix(in srgb, var(--paper-soft) 35%, transparent);
+      font-size: .88rem;
+      padding: .2rem .5rem;
+      transition: color .3s;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .admin-trigger-btn:hover {
+      color: color-mix(in srgb, var(--gold-pale) 60%, transparent);
+    }
+
+    .admin-trigger-btn:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    .admin-session-bar {
+      display: none;
+      align-items: center;
+      gap: .65rem;
+      background: color-mix(in srgb, var(--gold) 18%, var(--emerald-deep));
+      border: 1px solid color-mix(in srgb, var(--gold) 50%, transparent);
+      padding: .45rem 1rem;
+      border-radius: 999px;
+      font-family: var(--sans);
+      font-size: .78rem;
+      color: var(--gold-pale);
+      flex-shrink: 0;
+    }
+
+    .admin-session-bar.active {
+      display: flex;
+    }
+
+    .admin-logout-btn {
+      background: none;
+      border: 1px solid color-mix(in srgb, var(--gold) 55%, transparent);
+      color: var(--gold-warm);
+      font-family: var(--sans);
+      font-size: .72rem;
+      font-weight: 600;
+      padding: .25rem .65rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .admin-logout-btn:hover {
+      background: color-mix(in srgb, var(--gold) 20%, transparent);
+      border-color: var(--gold);
+    }
+
     /* ---------- gallery (woven photo showcase & storage) ---------- */
     .gallery {
       background: var(--emerald-deep);
@@ -2102,8 +2305,13 @@
           Pattuku, Bontocani.</p>
       </div>
       <div class="gallery-actions">
+        <div class="admin-session-bar" id="adminSessionBar">
+          <span>🔐</span>
+          <span>Mode Admin Aktif</span>
+          <button class="admin-logout-btn" id="adminLogoutBtn" type="button">Keluar</button>
+        </div>
         <button class="gallery-manage-btn" id="openManagerBtn" type="button" aria-haspopup="dialog"
-          aria-controls="photoManagerModal">
+          aria-controls="photoManagerModal" style="display: none;">
           <span aria-hidden="true">📷</span>
           <span>Kelola &amp; Simpan Foto</span>
           <span class="btn-badge" id="savedBadgeCount">0</span>
@@ -2236,9 +2444,41 @@
     </div>
     <div class="footer-bottom">
       <span>© <span id="yr"></span> MTs Pattuku, Bontocani.</span>
-      <span>Menenun generasi, satu angkatan tiap tahun.</span>
+      <span>Menenun generasi, satu angkatan tiap tahun.
+        <button class="admin-trigger-btn" id="adminTriggerBtn" type="button"
+          aria-label="Admin" title="Admin">🔒</button>
+      </span>
     </div>
   </footer>
+
+  <!-- Admin Login Modal -->
+  <div class="admin-login-modal" id="adminLoginModal" role="dialog" aria-modal="true" aria-labelledby="adminLoginTitle">
+    <div class="admin-login-box">
+      <div class="admin-login-head">
+        <div class="admin-login-icon">🔐</div>
+        <div>
+          <h3 id="adminLoginTitle">Login Administrator</h3>
+          <p>MTs Pattuku · Pengelolaan Foto Dokumentasi</p>
+        </div>
+      </div>
+      <div class="admin-login-body">
+        <div class="admin-pass-group">
+          <label for="adminPassInput">Kata Sandi Admin</label>
+          <div class="admin-pass-wrap">
+            <input type="password" id="adminPassInput" class="admin-pass-input"
+              placeholder="Masukkan kata sandi admin..." autocomplete="current-password">
+            <button type="button" class="admin-pass-toggle" id="adminPassToggle"
+              aria-label="Tampilkan/sembunyikan kata sandi">👁</button>
+          </div>
+        </div>
+        <div class="admin-login-error" id="adminLoginError">Kata sandi salah. Silakan coba lagi.</div>
+        <div class="admin-login-actions">
+          <button type="button" class="btn-secondary" id="adminLoginCancelBtn">Batal</button>
+          <button type="button" class="btn-primary" id="adminLoginSubmitBtn">Masuk sebagai Admin</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Lightbox Modal -->
   <div class="lightbox-modal" id="photoLightbox" role="dialog" aria-modal="true"
@@ -2418,6 +2658,148 @@
       } else {
         document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in') });
       }
+
+      // ============================================================
+      // ADMIN AUTHENTICATION ENGINE
+      // ============================================================
+      // To change the admin password, replace the hash below.
+      // Generate a new hash by running in browser console:
+      //   crypto.subtle.digest('SHA-256', new TextEncoder().encode('passwordbaru'))
+      //     .then(b => console.log([...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')))
+      var ADMIN_PASS_HASH = '70700a6362001c25d8a03d0997a1b2f79371f1adbdd96d781d2107b15303da45'; // default: pattuku1972
+
+      var adminSessionKey = 'mts_admin_session';
+
+      function computeHash(str) {
+        return crypto.subtle.digest('SHA-256', new TextEncoder().encode(str))
+          .then(function (buf) {
+            return Array.from(new Uint8Array(buf))
+              .map(function (b) { return b.toString(16).padStart(2, '0'); })
+              .join('');
+          });
+      }
+
+      function isAdminLoggedIn() {
+        return sessionStorage.getItem(adminSessionKey) === '1';
+      }
+
+      function setAdminSession(active) {
+        if (active) {
+          sessionStorage.setItem(adminSessionKey, '1');
+        } else {
+          sessionStorage.removeItem(adminSessionKey);
+        }
+        updateAdminUI();
+      }
+
+      function updateAdminUI() {
+        var loggedIn = isAdminLoggedIn();
+        var manageBtn = document.getElementById('openManagerBtn');
+        var sessionBar = document.getElementById('adminSessionBar');
+        var triggerBtn = document.getElementById('adminTriggerBtn');
+        if (manageBtn) manageBtn.style.display = loggedIn ? 'inline-flex' : 'none';
+        if (sessionBar) sessionBar.classList.toggle('active', loggedIn);
+        if (triggerBtn) triggerBtn.title = loggedIn ? 'Admin aktif — klik untuk logout' : 'Admin';
+        if (triggerBtn) triggerBtn.textContent = loggedIn ? '🔓' : '🔒';
+      }
+
+      // Admin Login Modal elements
+      var adminLoginModal = document.getElementById('adminLoginModal');
+      var adminPassInput = document.getElementById('adminPassInput');
+      var adminPassToggle = document.getElementById('adminPassToggle');
+      var adminLoginError = document.getElementById('adminLoginError');
+      var adminLoginCancelBtn = document.getElementById('adminLoginCancelBtn');
+      var adminLoginSubmitBtn = document.getElementById('adminLoginSubmitBtn');
+      var adminTriggerBtn = document.getElementById('adminTriggerBtn');
+      var adminLogoutBtn = document.getElementById('adminLogoutBtn');
+
+      function openAdminLogin() {
+        if (!adminLoginModal) return;
+        if (adminPassInput) { adminPassInput.value = ''; adminPassInput.type = 'password'; }
+        if (adminLoginError) adminLoginError.classList.remove('show');
+        adminLoginModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+        setTimeout(function () { if (adminPassInput) adminPassInput.focus(); }, 100);
+      }
+
+      function closeAdminLogin() {
+        if (!adminLoginModal) return;
+        adminLoginModal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      function doAdminLogin() {
+        var pass = adminPassInput ? adminPassInput.value : '';
+        if (!pass) { if (adminLoginError) { adminLoginError.textContent = 'Kata sandi tidak boleh kosong.'; adminLoginError.classList.add('show'); } return; }
+        computeHash(pass).then(function (hash) {
+          if (hash === ADMIN_PASS_HASH) {
+            setAdminSession(true);
+            closeAdminLogin();
+            showToast('Selamat datang, Admin! Mode pengelola foto aktif.');
+          } else {
+            if (adminLoginError) { adminLoginError.textContent = 'Kata sandi salah. Silakan coba lagi.'; adminLoginError.classList.add('show'); }
+            if (adminPassInput) { adminPassInput.value = ''; adminPassInput.focus(); }
+          }
+        });
+      }
+
+      // Admin trigger: klik ikon kunci di footer
+      if (adminTriggerBtn) {
+        adminTriggerBtn.addEventListener('click', function () {
+          if (isAdminLoggedIn()) {
+            if (confirm('Keluar dari mode admin?')) {
+              setAdminSession(false);
+              showToast('Sesi admin telah diakhiri.');
+            }
+          } else {
+            openAdminLogin();
+          }
+        });
+      }
+
+      if (adminLogoutBtn) {
+        adminLogoutBtn.addEventListener('click', function () {
+          if (confirm('Keluar dari mode admin?')) {
+            setAdminSession(false);
+            showToast('Sesi admin telah diakhiri.');
+          }
+        });
+      }
+
+      if (adminLoginCancelBtn) adminLoginCancelBtn.addEventListener('click', closeAdminLogin);
+
+      if (adminLoginSubmitBtn) adminLoginSubmitBtn.addEventListener('click', doAdminLogin);
+
+      if (adminPassInput) {
+        adminPassInput.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter') doAdminLogin();
+        });
+      }
+
+      if (adminPassToggle) {
+        adminPassToggle.addEventListener('click', function () {
+          if (!adminPassInput) return;
+          var isPass = adminPassInput.type === 'password';
+          adminPassInput.type = isPass ? 'text' : 'password';
+          adminPassToggle.textContent = isPass ? '🙈' : '👁';
+        });
+      }
+
+      if (adminLoginModal) {
+        adminLoginModal.addEventListener('click', function (e) {
+          if (e.target === adminLoginModal) closeAdminLogin();
+        });
+      }
+
+      // Extend keyboard listener for admin modal
+      window.addEventListener('keydown', function (e) {
+        if (adminLoginModal && adminLoginModal.classList.contains('active') && e.key === 'Escape') {
+          closeAdminLogin();
+        }
+      }, true);
+
+      // Init admin UI state
+      updateAdminUI();
 
       // ============================================================
       // PHOTO STORAGE ENGINE (IndexedDB + Fallback) & GALLERY LOGIC
