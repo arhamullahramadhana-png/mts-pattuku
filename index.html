@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MTs Pattuku · Menjalin Ilmu dan Akhlak Sejak 1972</title>
+  <meta name="description"
+    content="MTs Pattuku, madrasah tsanawiyah swasta di Desa Pattuku, Bontocani, Kab. Bone, Sulawesi Selatan. Menenun generasi demi generasi dengan Qur'an di hati sejak 1972.">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link rel="apple-touch-icon" href="assets/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Work+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ============================================================
+   IMPECCABLE DIRECTION CONTRACT — MTs Pattuku (single-file web)
+   THESIS: A rural Bugis madrasah whose story is "half a century
+     weaving generations," told in the language of Bone's silk
+     songket. Refuses the cream+terracotta serif default, the
+     dark+neon default, and the generic green "Islamic" default.
+   OWN-WORLD: A hand-woven ground — deep emerald warp on a warm
+     ivory reading surface, gold thread (tila') marking what
+     matters, continuous woven rows that never break into card
+     grids. Warp is section rhythm; gold is the accent.
+   STORY: A parent understands MTs Pattuku as a family heirloom
+     woven over 50 years, believes in its Qur'an-centred
+     discipline and grounded community, and registers their child.
+   FIRST VIEWPORT: deep emerald woven songket band filling the
+     top, Arabic motto set in Amiri as the gold-thread thesis,
+     brand "MTs PATTUKU" beneath, gold "Daftar PPDB" thread
+     button. Pale ivory field below.
+   FORM: hand-woven songket; position 4 of grounded list; seed
+     5b6530f7. Donations: continuous-pattern discipline (op-art
+     textile), human-mark warmth (hand-drawn zine).
+   FINISH: unreviewed and undocumented is unfinished; this build
+     ends with the finish review, the verdict, DESIGN.md, and
+     every shipping raster carrying its provenance.
+   ============================================================ */
+
+    :root {
+      --emerald: #0d3328;
+      /* primary woven ground */
+      --emerald-deep: #09231b;
+      /* darkest weave */
+      --emerald-mid: #14523b;
+      /* mid warp thread */
+      --emerald-line: #1d6b4c;
+      /* bright thread */
+      --gold: #c9a227;
+      /* gold thread (accent) */
+      --gold-warm: #d9b74a;
+      --gold-pale: #e9d17f;
+      --gold-ink: #8a6d1b;
+      /* readable gold for text on light */
+      --paper: #f6efe2;
+      /* ivory reading surface */
+      --paper-soft: #efe6d0;
+      /* softer ivory */
+      --ink: #22312b;
+      /* ink text */
+      --ink-soft: #5b6a63;
+      /* secondary text (tinted from hue) */
+      --line: #d8c9a6;
+      /* gold-ruled hairline on ivory */
+      --focus: #b8892a;
+      /* focus ring */
+
+      --serif: "Source Serif 4", Georgia, serif;
+      --display: "Amiri", "Source Serif 4", serif;
+      --sans: "Work Sans", system-ui, -apple-system, sans-serif;
+
+      --gut: max(1.25rem, calc((100vw - 70rem) / 2));
+      --measure: 64ch;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--serif);
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.62;
+      font-size: 1.075rem;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --- themed browser surfaces --- */
+    ::selection {
+      background: var(--gold);
+      color: var(--emerald-deep)
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+      border-radius: 2px
+    }
+
+    ::-webkit-scrollbar {
+      width: 14px
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--paper-soft)
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--emerald-mid);
+      border: 4px solid var(--paper-soft);
+      border-radius: 8px
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--emerald-line)
+    }
+
+    :root {
+      caret-color: var(--emerald)
+    }
+
+    img {
+      max-width: 100%;
+      display: block
+    }
+
+    a {
+      color: inherit
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0
+    }
+
+    h2 {
+      font-family: var(--display);
+      font-weight: 700;
+      line-height: 1.06;
+      font-size: clamp(2rem, 6vw, 3.4rem);
+      letter-spacing: -0.01em;
+      text-wrap: balance
+    }
+
+    .section {
+      padding-inline: var(--gut);
+      padding-block: clamp(3.5rem, 9vw, 7rem)
+    }
+
+    .ink-narrow>h2 {
+      max-width: 20em
+    }
+
+    .lede {
+      font-size: clamp(1.1rem, 2.4vw, 1.34rem);
+      line-height: 1.45;
+      font-weight: 600;
+      margin-top: 1rem;
+      color: var(--emerald-deep);
+      max-width: 34em
+    }
+
+    .ppdb-sub {
+      color: var(--paper-soft)
+    }
+
+    /* ---------- nav ---------- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: color-mix(in srgb, var(--emerald-deep) 92%, transparent);
+      color: var(--paper);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid color-mix(in srgb, var(--gold) 40%, transparent);
+    }
+
+    .nav-in {
+      max-width: 70rem;
+      margin-inline: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: .7rem var(--gut)
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: .65rem;
+      font-family: var(--sans);
+      font-weight: 600;
+      letter-spacing: .08em;
+      font-size: .84rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--paper);
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .brand .dot {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    .nav-links a {
+      font-family: var(--sans);
+      font-size: .86rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: .35rem .2rem;
+      opacity: .9;
+      border-bottom: 2px solid transparent;
+      transition: border-color .2s, opacity .2s
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      border-bottom-color: var(--gold)
+    }
+
+    .nav-cta {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: .82rem;
+      color: var(--emerald-deep);
+      background: var(--gold);
+      text-decoration: none;
+      padding: .55rem 1rem;
+      border-radius: 999px;
+      white-space: nowrap
+    }
+
+    .nav-cta:hover {
+      background: var(--gold-warm)
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: 0;
+      color: var(--paper);
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: .2rem .5rem
+    }
+
+    /* ---------- hero: the woven band ---------- */
+    .hero {
+      position: relative;
+      color: var(--paper);
+      overflow: hidden;
+      background: var(--emerald-deep);
+    }
+
+    .songket {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .5;
+      pointer-events: none
+    }
+
+    .hero-shade {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(9, 35, 27, .35), rgba(9, 35, 27, .05) 40%, rgba(13, 51, 40, .9))
+    }
+
+    .hero-in {
+      position: relative;
+      max-width: 70rem;
+      margin-inline: auto;
+      padding: clamp(4rem, 13vw, 8.5rem) var(--gut) clamp(3.5rem, 9vw, 6.5rem)
+    }
+
+    .hero-eyebrow-mark {
+      display: flex;
+      align-items: center;
+      gap: .65rem;
+      font-family: var(--sans);
+      font-weight: 500;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: .72rem;
+      color: var(--gold-pale);
+    }
+
+    .hero-logo-mini {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .hero-eyebrow-mark::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-top: .1rem;
+    }
+
+    .hero-motto {
+      font-family: var(--display);
+      font-weight: 400;
+      color: var(--gold-warm);
+      font-size: clamp(1.6rem, 4.5vw, 2.7rem);
+      line-height: 1.5;
+      margin: 1.4rem 0 .1rem
+    }
+
+    .hero-motto-trans {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1rem, 2.4vw, 1.25rem);
+      color: var(--paper-soft);
+      opacity: .92
+    }
+
+    .hero h1 {
+      font-family: var(--display);
+      font-weight: 700;
+      line-height: 1.03;
+      letter-spacing: -0.01em;
+      margin: 1.5rem 0 1.2rem;
+      font-size: clamp(2.5rem, 9vw, 5.5rem);
+      text-wrap: balance
+    }
+
+    .hero p {
+      max-width: var(--measure);
+      color: var(--paper-soft);
+      font-size: clamp(1.05rem, 2.4vw, 1.28rem)
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .9rem;
+      align-items: center;
+      margin-top: 2.2rem
+    }
+
+    .thread-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      font-family: var(--sans);
+      font-weight: 600;
+      text-decoration: none;
+      color: var(--emerald-deep);
+      background: var(--gold);
+      padding: .9rem 1.5rem;
+      border-radius: 999px;
+      font-size: 1rem;
+      position: relative;
+      overflow: hidden
+    }
+
+    .thread-btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 20%, rgba(255, 255, 255, .5), transparent 60%);
+      transform: translateX(-120%);
+      transition: transform .7s
+    }
+
+    .thread-btn:hover::after {
+      transform: translateX(120%)
+    }
+
+    .thread-btn.ghost {
+      background: transparent;
+      color: var(--paper);
+      border: 1px solid color-mix(in srgb, var(--gold) 60%, transparent)
+    }
+
+    .thread-btn.ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold-pale)
+    }
+
+    .thread-btn:hover {
+      background: var(--gold-warm)
+    }
+
+    .hero-seal {
+      position: absolute;
+      right: var(--gut);
+      bottom: clamp(1rem, 5vw, 2.5rem);
+      text-align: right;
+      opacity: .85
+    }
+
+    .hero-seal .num {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(3rem, 8vw, 5rem);
+      color: var(--gold-pale);
+      line-height: .9
+    }
+
+    .hero-seal .lab {
+      font-family: var(--sans);
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-size: .68rem;
+      color: var(--paper-soft)
+    }
+
+    /* thread divider — a woven row between sections */
+    .thread-row {
+      position: relative;
+      height: 2.1rem;
+      overflow: hidden;
+      background:
+        repeating-linear-gradient(90deg, var(--emerald-deep) 0 22px, var(--emerald-mid) 22px 26px, var(--emerald-deep) 26px 48px, var(--emerald-line) 48px 52px, var(--emerald-deep) 52px 90px)
+    }
+
+    .thread-row .gold {
+      position: absolute;
+      inset: 0;
+      opacity: .7;
+      background-image:
+        radial-gradient(circle 2px at 34px 24%, rgba(233, 209, 127, .9), transparent),
+        radial-gradient(circle 2px at 118px 72%, rgba(233, 209, 127, .8), transparent),
+        radial-gradient(circle 2px at 214px 40%, rgba(233, 209, 127, .9), transparent),
+        radial-gradient(circle 2px at 300px 84%, rgba(233, 209, 127, .8), transparent),
+        radial-gradient(circle 2px at 420px 6%, rgba(233, 209, 127, .9), transparent),
+        radial-gradient(circle 2px at 520px 60%, rgba(233, 209, 127, .9), transparent);
+      background-size: 560px 100%
+    }
+
+    /* ---------- about (ivory weave) ---------- */
+    .about {
+      background: var(--paper)
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(2rem, 6vw, 4.5rem);
+      align-items: start
+    }
+
+    .about-lead {
+      font-size: clamp(1.2rem, 2.6vw, 1.5rem);
+      line-height: 1.45;
+      font-weight: 600;
+      max-width: 30em;
+      color: var(--emerald-deep);
+      margin-top: 1.2rem
+    }
+
+    .about-body {
+      color: var(--ink-soft);
+      margin-top: 1.2rem;
+      max-width: var(--measure)
+    }
+
+    .about-seal {
+      margin-top: 2.2rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.5rem
+    }
+
+    .seal-item .k {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--gold-ink);
+      line-height: 1
+    }
+
+    .seal-item .v {
+      font-family: var(--sans);
+      font-size: .78rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      margin-top: .4rem
+    }
+
+    .about-note {
+      margin-top: 1.6rem;
+      font-family: var(--sans);
+      font-size: .82rem;
+      color: var(--ink-soft)
+    }
+
+    /* ---------- welcome (emerald weave) ---------- */
+    .welcome {
+      background: var(--emerald-deep);
+      color: var(--paper)
+    }
+
+    .welcome .wrap {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: clamp(2rem, 6vw, 4.5rem);
+      align-items: center
+    }
+
+    .welcome-media {
+      order: 1;
+    }
+
+    .welcome-content {
+      order: 2;
+    }
+
+    .welcome h2 {
+      color: var(--gold-pale)
+    }
+
+    .welcome-photo-box {
+      margin-top: 0;
+      max-width: 320px
+    }
+
+    .welcome-photo-frame {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+      background: var(--emerald);
+      aspect-ratio: 3/4;
+    }
+
+    .welcome-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+    }
+
+    .welcome-photo-caption {
+      margin-top: .85rem;
+      font-family: var(--sans);
+      display: flex;
+      flex-direction: column;
+      gap: .15rem;
+      text-align: center;
+    }
+
+    .welcome-photo-caption .caption-title {
+      margin: 0 auto;
+      color: var(--gold-warm);
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.15rem;
+    }
+
+    .welcome-photo-caption .caption-sub {
+      margin: 0 auto;
+      color: var(--paper-soft);
+      font-size: .8rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .welcome-mark {
+      font-family: var(--display);
+      font-size: clamp(1.75rem, 5vw, 3rem);
+      color: var(--gold);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+      opacity: .95;
+      text-wrap: balance;
+    }
+
+    .welcome blockquote {
+      font-family: var(--serif);
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+      line-height: 1.6;
+      color: var(--paper);
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+      padding-top: 1.5rem
+    }
+
+    .welcome-sign {
+      margin-top: 1.8rem;
+      font-family: var(--sans);
+      font-size: .9rem;
+      color: var(--paper-soft);
+      letter-spacing: .04em
+    }
+
+    .welcome-sign strong {
+      display: block;
+      color: var(--gold-warm);
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      letter-spacing: 0;
+      margin-bottom: .2rem
+    }
+
+    /* ---------- programs (thread rows, no cards) ---------- */
+    .programs {
+      background: var(--paper)
+    }
+
+    .programs .ink-narrow {
+      margin-bottom: clamp(2rem, 6vw, 3.5rem)
+    }
+
+    .program {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--line)
+    }
+
+    .program:last-child {
+      border-bottom: 1px solid var(--line)
+    }
+
+    .program .name {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: clamp(1.4rem, 3.4vw, 1.9rem);
+      color: var(--emerald-deep);
+      line-height: 1.15
+    }
+
+    .program .desc {
+      color: var(--ink-soft);
+      max-width: 42em
+    }
+
+    .program .motto {
+      font-family: var(--display);
+      color: var(--gold-ink);
+      font-size: 1.4rem;
+      margin-top: .4rem;
+      display: block
+    }
+
+    /* ---------- facilities (simple woven list) ---------- */
+    .facilities {
+      background: var(--paper-soft)
+    }
+
+    .facilities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1px;
+      background: var(--line);
+      margin-top: 2.2rem;
+      border: 1px solid var(--line)
+    }
+
+    .fac {
+      background: var(--paper-soft);
+      padding: 1.6rem 1.4rem
+    }
+
+    .fac .sky {
+      font-family: var(--sans);
+      font-size: .72rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--gold-ink)
+    }
+
+    .fac h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.35rem;
+      color: var(--emerald-deep);
+      margin-top: .5rem
+    }
+
+    .fac p {
+      color: var(--ink-soft);
+      font-size: .98rem;
+      margin-top: .5rem
+    }
+
+    /* ---------- ppdb (the action, emerald) ---------- */
+    .ppdb {
+      background: var(--emerald);
+      color: var(--paper)
+    }
+
+    .ppdb h2 {
+      color: var(--paper)
+    }
+
+    .ppdb-sub {
+      max-width: var(--measure);
+      margin-top: 1rem;
+      font-size: 1.1rem
+    }
+
+    .ppdb-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: clamp(2rem, 6vw, 4.5rem);
+      margin-top: 2.6rem;
+      align-items: start
+    }
+
+    .steps {
+      list-style: none;
+      margin: 0;
+      padding: 0
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.1rem;
+      padding: 1.15rem 0;
+      border-top: 1px solid color-mix(in srgb, var(--gold) 40%, transparent)
+    }
+
+    .step .n {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--gold);
+      line-height: 1;
+      min-width: 2.6rem
+    }
+
+    .step h3 {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1.02rem;
+      color: var(--paper);
+      margin: .1rem 0 .2rem
+    }
+
+    .step p {
+      color: var(--paper-soft);
+      font-size: .98rem
+    }
+
+    .ppdb-box {
+      background: color-mix(in srgb, var(--emerald-deep) 55%, var(--emerald));
+      border: 1px solid color-mix(in srgb, var(--gold) 50%, transparent);
+      padding: clamp(1.5rem, 4vw, 2.2rem);
+      border-radius: 14px
+    }
+
+    .ppdb-box h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--gold-warm);
+      margin-bottom: .6rem
+    }
+
+    .ppdb-box ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      color: var(--paper-soft);
+      font-size: .98rem
+    }
+
+    .ppdb-box li {
+      padding: .45rem 0;
+      padding-left: 1.2rem;
+      position: relative
+    }
+
+    .ppdb-box li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: .8rem;
+      top: .55rem
+    }
+
+    .ppdb-box .cta {
+      display: block;
+      margin-top: 1.5rem;
+      text-align: center
+    }
+
+    .ppdb-note {
+      margin-top: 1.4rem;
+      font-family: var(--sans);
+      font-size: .82rem;
+      color: var(--paper-soft);
+    }
+
+    .ppdb-note a {
+      color: var(--gold-warm)
+    }
+
+    /* ---------- news ---------- */
+    .news {
+      background: var(--paper)
+    }
+
+    .news-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: clamp(1rem, 3vw, 2rem);
+      margin-top: 2.4rem
+    }
+
+    .news-item {
+      border-top: 2px solid var(--emerald);
+      padding-top: 1rem
+    }
+
+    .news-item .date {
+      font-family: var(--sans);
+      font-size: .76rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold-ink)
+    }
+
+    .news-item h3 {
+      font-family: var(--display);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--emerald-deep);
+      margin: .5rem 0 .4rem;
+      line-height: 1.2
+    }
+
+    .news-item p {
+      color: var(--ink-soft);
+      font-size: .98rem
+    }
+
+    /* ---------- footer ---------- */
+    .footer {
+      background: var(--emerald-deep);
+      color: var(--paper);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: clamp(2rem, 5vw, 4rem)
+    }
+
+    .footer h4 {
+      font-family: var(--sans);
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .8rem;
+      color: var(--gold-pale);
+      margin-bottom: 1rem
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--paper-soft);
+      font-size: .98rem;
+    }
+
+    .footer .footer-blurb {
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .footer a {
+      text-decoration: none;
+      border-bottom: 1px solid transparent
+    }
+
+    .footer a:hover {
+      color: var(--paper);
+      border-bottom-color: var(--gold)
+    }
+
+    .footer-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: .5rem
+    }
+
+    .footer-bottom {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+      font-family: var(--sans);
+      font-size: .78rem;
+      color: var(--paper-soft);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem
+    }
+
+    .footer-brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      margin-bottom: .4rem;
+    }
+
+    .footer-logo {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .footer .brand {
+      font-size: 1rem;
+      letter-spacing: .1em;
+    }
+
+    /* ---------- reveal (one movement, reduced-motion safe) ---------- */
+    html.js .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s cubic-bezier(.2, .7, .2, 1)
+    }
+
+    html.js .reveal.in {
+      opacity: 1;
+      transform: none
+    }
+
+    html:not(.js) .reveal {
+      opacity: 1;
+      transform: none
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width:860px) {
+
+      .about-grid,
+      .welcome .wrap,
+      .ppdb-grid {
+        grid-template-columns: 1fr
+      }
+
+      .welcome .wrap {
+        gap: 2rem
+      }
+
+      .welcome-content {
+        order: 1
+      }
+
+      .welcome-media {
+        order: 2;
+        display: flex;
+        justify-content: center;
+        width: 100%
+      }
+
+      .welcome-photo-box {
+        max-width: 220px;
+        width: 100%;
+        margin: 0 auto
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .program {
+        grid-template-columns: 1fr;
+        gap: .4rem
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--emerald-deep);
+        flex-direction: column;
+        gap: 0;
+        padding: 0 1.5rem 1.2rem;
+        display: none;
+        border-bottom: 1px solid color-mix(in srgb, var(--gold) 40%, transparent)
+      }
+
+      .nav-links.open {
+        display: flex
+      }
+
+      .nav-links a {
+        padding: .8rem 0;
+        border-bottom: 1px solid color-mix(in srgb, #fff 12%, transparent);
+        font-size: 1rem
+      }
+
+      .nav-links a:hover {
+        border-bottom-color: var(--gold)
+      }
+
+      .menu-btn {
+        display: block
+      }
+
+      .nav-cta {
+        display: none
+      }
+
+      .hero-seal {
+        position: relative;
+        right: auto;
+        bottom: auto;
+        text-align: left;
+        margin-top: 2.5rem
+      }
+    }
+
+    @media (max-width:560px) {
+      .section {
+        padding-block: clamp(2.8rem, 8vw, 4.5rem)
+      }
+
+      .hero-in {
+        padding-top: clamp(3rem, 10vw, 4.5rem);
+        padding-bottom: clamp(2.5rem, 8vw, 3.5rem)
+      }
+
+      .about-seal {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: .75rem
+      }
+
+      .seal-item .k {
+        font-size: 1.5rem
+      }
+
+      .seal-item .v {
+        font-size: .68rem
+      }
+
+      .facilities-grid {
+        grid-template-columns: 1fr
+      }
+
+      .news-list {
+        grid-template-columns: 1fr
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto
+      }
+
+      html.js .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none
+      }
+
+      * {
+        animation: none !important;
+        transition: none !important
+      }
+
+      .thread-btn::after {
+        display: none
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="nav">
+    <div class="nav-in">
+      <a class="brand" href="#" aria-label="Beranda MTs Pattuku">
+        <img src="assets/logo.png" alt="Logo MTs Pattuku" class="brand-logo" width="32" height="32">
+        <span>MTs&nbsp;Pattuku</span>
+      </a>
+      <nav aria-label="Navigasi utama">
+        <button class="menu-btn" aria-expanded="false" aria-controls="navlinks" aria-label="Buka menu">☰</button>
+        <ul class="nav-links" id="navlinks">
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#program">Program</a></li>
+          <li><a href="#fasilitas">Fasilitas</a></li>
+          <li><a href="#ppdb">PPDB</a></li>
+          <li><a href="#kontak">Kontak</a></li>
+        </ul>
+      </nav>
+      <a class="nav-cta" href="#ppdb">Daftar PPDB</a>
+    </div>
+  </div>
+
+  <header class="hero">
+    <svg class="songket" aria-hidden="true" focusable="false">
+      <defs>
+        <pattern id="warp" width="64" height="64" patternUnits="userSpaceOnUse">
+          <rect width="64" height="64" fill="#0b2a20" />
+          <line x1="8" x2="8" y1="0" y2="64" stroke="#123f2f" stroke-width="5" />
+          <line x1="23" x2="23" y1="0" y2="64" stroke="#16563c" stroke-width="2" />
+          <line x1="40" x2="40" y1="0" y2="64" stroke="#123f2f" stroke-width="5" />
+          <line x1="55" x2="55" y1="0" y2="64" stroke="#16563c" stroke-width="2" />
+          <g fill="#c9a227">
+            <rect x="28" y="6" width="7" height="2" opacity=".85" />
+            <rect x="12" y="38" width="7" height="2" opacity=".7" />
+            <rect x="44" y="20" width="2" height="7" opacity=".75" />
+            <rect x="58" y="48" width="2" height="7" opacity=".6" />
+            <rect x="44" y="52" width="7" height="2" opacity=".8" />
+            <rect x="4" y="16" width="7" height="2" opacity=".55" />
+          </g>
+          <circle cx="32" cy="32" r="1.3" fill="#e9d17f" opacity=".85" />
+          <circle cx="6" cy="60" r="1.3" fill="#e9d17f" opacity=".5" />
+          <circle cx="58" cy="8" r="1.3" fill="#e9d17f" opacity=".5" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#warp)" />
+    </svg>
+    <div class="hero-shade"></div>
+
+    <div class="hero-in">
+      <div class="hero-eyebrow-mark">
+        <span>YPI Hajar Aswad · MTs Pattuku · Bone</span>
+      </div>
+      <h1>Menjalin ilmu dan akhlak sejak 1972.</h1>
+      <p>Sebuah madrasah swasta di Desa Pattuku, Bontocani. Selama lebih dari lima puluh tahun kami menenun generasi
+        demi generasi — Qur’an di hati, ilmu di kepala.</p>
+      <div class="hero-actions">
+        <a class="thread-btn" href="#ppdb">Daftar PPDB Baru <span aria-hidden="true">→</span></a>
+        <a class="thread-btn ghost" href="#tentang">Kenali madrasah kami</a>
+      </div>
+    </div>
+
+    <div class="hero-seal">
+      <div class="num">1972</div>
+      <div class="lab">Berdiri · selama generasi</div>
+    </div>
+  </header>
+
+  <div class="thread-row" aria-hidden="true">
+    <div class="gold"></div>
+  </div>
+
+  <section class="section about" id="tentang">
+    <div class="about-grid ink-narrow reveal">
+      <div>
+        <h2>Lebih dari setengah abad mendidik anak desa.</h2>
+        <p class="about-lead">Kami bukan madrasah besar. Kami madrasah yang jujur, berakar di tanah Bontocani, dan
+          menepati janji yang sama sejak 1972.</p>
+      </div>
+      <div>
+        <p class="about-body">MTs Pattuku berdiri sebagai madrasah tsanawiyah swasta, kini terakreditasi&nbsp;B. Setiap
+          pagi anak-anak belajar membaca al-Qur’an dengan benar, lalu mengikuti pelajaran umum layaknya madrasah lain di
+          tanah air. Yang istimewa bukan gedungnya — yang istimewa adalah orang-orangnya yang tetap di sini, menyambut
+          satu angkatan dan mengantar yang berikutnya.</p>
+        <div class="about-seal">
+          <div class="seal-item">
+            <div class="k">1972</div>
+            <div class="v">Berdiri</div>
+          </div>
+          <div class="seal-item">
+            <div class="k">B</div>
+            <div class="v">Akreditasi</div>
+          </div>
+          <div class="seal-item">
+            <div class="k">±1000&nbsp;m²</div>
+            <div class="v">Lahan</div>
+          </div>
+        </div>
+        <p class="about-note">NPSN 40320026 · YPI Hajar Aswad · Status Swasta · Jenjang MTs · Kec. Bontocani, Kab. Bone
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section welcome" id="sambutan">
+    <div class="wrap">
+      <div class="welcome-media reveal">
+        <div class="welcome-photo-box">
+          <div class="welcome-photo-frame">
+            <img src="assets/kepala-madrasah.jpg" alt="Foto Roslawati, S.Pd - Kepala Madrasah MTs Pattuku"
+              class="welcome-photo" width="400" height="533" loading="lazy">
+          </div>
+          <div class="welcome-photo-caption">
+            <span class="caption-title">Roslawati, S.Pd</span>
+            <span class="caption-sub">MTs Pattuku · Bontocani</span>
+          </div>
+        </div>
+      </div>
+      <div class="welcome-content reveal">
+        <div class="welcome-mark">Sambutan Kepala Madrasah</div>
+        <blockquote>
+          “Selama puluhan tahun, MTs Pattuku menerima anak-anak desa apa adanya dan mendidik mereka dengan sabar —
+          mengajarkan al-Qur’an, akhlak, dan ilmu. Kami tidak berjanji yang muluk-muluk. Kami berjanji mendampingi
+          putra-putri Bapak/Ibu belajar dan tumbuh, hari demi hari, hingga mereka membawa bekal yang cukup untuk masa
+          depannya.”
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section class="section programs" id="program">
+    <div class="ink-narrow reveal">
+      <h2>Yang ditanam, tumbuh bersama Qur’an.</h2>
+      <p class="lede">Tiga tahun belajar yang menyeimbangkan hafalan, pembiasaan, dan ilmu umum.</p>
+    </div>
+
+    <div class="program reveal">
+      <div class="name">Tahfidzul Qur’an <span class="motto" lang="ar" dir="rtl">الحِفْظ</span></div>
+      <div class="desc">Hafalan al-Qur’an yang dibimbing bertahap, juz demi juz, sesuai kemampuan tiap anak — bukan
+        perlombaan, melainkan kebiasaan harian yang dipelihara.</div>
+    </div>
+    <div class="program reveal">
+      <div class="name">Tahsin &amp; Baca al-Qur’an <span class="motto" lang="ar" dir="rtl">التَّحْسِين</span></div>
+      <div class="desc">Membenahi bacaan agar tepat makhraj dan tajwidnya. Setiap anak diukur dan dibimbing sampai mampu
+        membaca dengan benar dan percaya diri.</div>
+    </div>
+    <div class="program reveal">
+      <div class="name">Pembiasaan &amp; Akhlak <span class="motto" lang="ar" dir="rtl">الأَخْلَاق</span></div>
+      <div class="desc">Salat berjamaah, kedisiplinan, dan adab sehari-hari yang dibiasakan sejak awal — membentuk
+        akhlak yang terbawa sampai dewasa.</div>
+    </div>
+    <div class="program reveal">
+      <div class="name">Ilmu Umum <span class="motto" lang="ar" dir="rtl">العُلُوم</span></div>
+      <div class="desc">Matematika, sains, bahasa, dan mata pelajaran umum sesuai kurikulum madrasah — bekal akademik
+        menuju jenjang berikutnya.</div>
+    </div>
+    <div class="program reveal">
+      <div class="name">Pengembangan Diri <span class="motto" lang="ar" dir="rtl">المَواهِب</span></div>
+      <div class="desc">Kaligrafi, pramuka, dan kegiatan seni yang menyalurkan bakat anak di sela-sela waktu belajar.
+      </div>
+    </div>
+  </section>
+
+  <section class="section facilities" id="fasilitas">
+    <div class="ink-narrow reveal">
+      <h2>Sederhana, cukup, dan terawat.</h2>
+      <p class="lede">Fasilitas yang mendukung anak belajar dengan tenang dan nyaman.</p>
+    </div>
+    <div class="facilities-grid reveal">
+      <div class="fac">
+        <div class="sky">Ruang Belajar</div>
+        <h3>Ruang Kelas</h3>
+        <p>Ruang belajar yang bersih dan cukup untuk setiap rombongan.</p>
+      </div>
+      <div class="fac">
+        <div class="sky">Bacaan</div>
+        <h3>Perpustakaan</h3>
+        <p>Koleksi buku pelajaran dan bacaan yang menumbuhkan minat baca.</p>
+      </div>
+      <div class="fac">
+        <div class="sky">Ibadah</div>
+        <h3>Mushala</h3>
+        <p>Tempat salat dan mengaji yang dekat, dijaga bersama.</p>
+      </div>
+      <div class="fac">
+        <div class="sky">Kesehatan</div>
+        <h3>UKS</h3>
+        <p>Ruang usaha kesehatan sekolah untuk pertolongan pertama.</p>
+      </div>
+      <div class="fac">
+        <div class="sky">Tempat Umum</div>
+        <h3>Lapangan</h3>
+        <p>Halaman untuk upacara, olahraga, dan bermain bersama.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ppdb" id="ppdb">
+    <div class="ink-narrow reveal">
+      <h2>Daftar putra-putri Anda.</h2>
+      <p class="ppdb-sub">PPDB MTs Pattuku menerima lulusan SD/MI. Prosesnya sederhana dan dibantu langsung oleh guru
+        madrasah.</p>
+    </div>
+    <div class="ppdb-grid reveal">
+      <ol class="steps">
+        <li class="step"><span class="n">1</span>
+          <div>
+            <h3>Datang &amp; isi formulir</h3>
+            <p>Kunjungi madrasah, bertemu langsung dengan guru, dan mengisi formulir pendaftaran.</p>
+          </div>
+        </li>
+        <li class="step"><span class="n">2</span>
+          <div>
+            <h3>Siapkan berkas</h3>
+            <p>Kartu keluarga, akta kelahiran, dan keterangan lulus atau rapor dari SD/MI asal.</p>
+          </div>
+        </li>
+        <li class="step"><span class="n">3</span>
+          <div>
+            <h3>Verifikasi</h3>
+            <p>Berkas diperiksa dan dicocokkan oleh panitia pendaftaran.</p>
+          </div>
+        </li>
+        <li class="step"><span class="n">4</span>
+          <div>
+            <h3>Pengumuman &amp; daftar ulang</h3>
+            <p>Hasil disampaikan, lalu calon siswa didaftarkan ulang.</p>
+          </div>
+        </li>
+      </ol>
+      <div>
+        <div class="ppdb-box">
+          <h3>Yang perlu disiapkan</h3>
+          <ul>
+            <li>Kartu Keluarga (KK)</li>
+            <li>Akta kelahiran</li>
+            <li>Keterangan lulus / rapor SD-MI</li>
+            <li>Pasfoto calon siswa</li>
+          </ul>
+          <a class="thread-btn cta" href="#kontak">Hubungi kami untuk jadwal tahun ini</a>
+        </div>
+        <p class="ppdb-note">Jadwal dan kuota setiap tahun ajaran ditetapkan madrasah. Silakan konfirmasi langsung
+          melalui kontak di bawah.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section news" id="berita">
+    <div class="ink-narrow reveal">
+      <h2>Kabar dari madrasah.</h2>
+      <p class="lede">Sedikit sorotan dari keseharian belajar di MTs Pattuku.</p>
+    </div>
+    <div class="news-list reveal">
+      <article class="news-item">
+        <div class="date">Kegiatan</div>
+        <h3>Pembagian rapor semester</h3>
+        <p>Orang tua diundang bertemu langsung dengan guru wali kelas untuk membahas perkembangan putra-putrinya.</p>
+      </article>
+      <article class="news-item">
+        <div class="date">Pembiasaan</div>
+        <h3>Khataman &amp; doa bersama</h3>
+        <p>Setiap penutup tahun ajaran, siswa yang menuntaskan hafalan diajak khataman dan berdoa bersama.</p>
+      </article>
+      <article class="news-item">
+        <div class="date">Lingkungan</div>
+        <h3>Kelas baru menyambut</h3>
+        <p>Rombongan belajar baru setiap tahun dirawat dan dijaga agar tetap bersih dan nyaman.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="section footer" id="kontak">
+    <div class="footer-grid">
+      <div>
+        <h4>MTs&nbsp;Pattuku</h4>
+        <p class="footer-blurb">Yayasan Pendidikan Islam Hajar Aswad · Menjalin ilmu dan akhlak sejak 1972. Madrasah
+          tsanawiyah swasta yang menyambut anak-anak
+          Desa Pattuku dan sekitarnya.</p>
+      </div>
+      <div>
+        <h4>Hubungi</h4>
+        <ul class="footer-list">
+          <li>Jl. Permandian Lakojang, Desa Pattuku,</li>
+          <li>Kec. Bontocani, Kab. Bone,</li>
+          <li>Sulawesi Selatan</li>
+          <li><a href="#kontak">NPSN 40320026</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Jelajahi</h4>
+        <ul class="footer-list">
+          <li><a href="#tentang">Tentang</a></li>
+          <li><a href="#program">Program</a></li>
+          <li><a href="#fasilitas">Fasilitas</a></li>
+          <li><a href="#ppdb">Pendaftaran (PPDB)</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="yr"></span> MTs Pattuku, Bontocani.</span>
+      <span>Menenun generasi, satu angkatan tiap tahun.</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      document.documentElement.classList.add('js');
+      var yr = document.getElementById('yr'); if (yr) yr.textContent = new Date().getFullYear();
+
+      // mobile menu
+      var btn = document.querySelector('.menu-btn'), links = document.getElementById('navlinks');
+      if (btn && links) {
+        btn.addEventListener('click', function () {
+          var open = links.classList.toggle('open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+          btn.textContent = open ? '✕' : '☰';
+          btn.setAttribute('aria-label', open ? 'Tutup menu' : 'Buka menu');
+        });
+        links.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { links.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); btn.textContent = '☰'; }); });
+      }
+
+      // reveal on scroll — single authored movement, reduced-motion safe
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce) {
+        var els = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+          var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+          }, { threshold: 0.12 });
+          els.forEach(function (el) { io.observe(el) });
+        } else { els.forEach(function (el) { el.classList.add('in') }); }
+      } else {
+        // reduced motion: show everything immediately
+        document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in') });
+      }
+    })();
+  </script>
+</body>
+
+</html>
